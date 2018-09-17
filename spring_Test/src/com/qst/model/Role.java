@@ -7,7 +7,6 @@ public class Role {
 	
 	public Role() {
 		System.out.println("Role构造方法调用");
-		System.out.println("--------");
 	}
 	
 	public int getId() {
