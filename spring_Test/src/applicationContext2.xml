@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+           
+           
+	<bean id="user" abstract="true"  init-method="init" destroy-method="destory">
+		<property name="name" value="wangwu"/>
+		<!-- <property name="password" value="123456"/> -->
+		<property name="role" ref="role"></property>
+		<property name="list">
+			<list>
+				<value>zs</value>
+				<value>ls</value>
+			</list>
+		</property>
+		<property name="map">
+			<map>
+				<entry key="key1" value="value1"/>
+				<entry key="key2" value="value2"/>
+			</map>
+		</property>
+	</bean>
+	
+	<bean id="role" class="com.qst.model.Role">
+		<property name="name" value="系统管理员"></property>
+	</bean>
+	
+	<bean id="userx" class="com.qst.model.User" parent="user"></bean>
+	
+<!-- 	<bean id="user1" class="com.qst.model.User">
+		<constructor-arg name="name" value="xyz"/>
+		<constructor-arg name="password" value="222"/>
+		<constructor-arg name="age" value="30"/>
+		<constructor-arg  ref="role"/>
+	</bean>
+
+     <bean id="user2" class="com.qst.model.User">
+		<property name="name" value="lisi"/>
+		<property name="password" value="123456"/>
+		<property name="role">
+			<bean class="com.qst.model.Role">
+				<property name="name" value="学生"></property>
+			</bean>
+		</property>
+	</bean> -->
+
+</beans>
